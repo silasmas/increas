@@ -9,4 +9,15 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateCategorie extends CreateRecord
 {
     protected static string $resource = CategorieResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index'); // Redirige vers la page d'index de la ressource
+    }
+    protected function beforeSave()
+    {
+        if ($this->record && $this->image) {
+            $this->record->image = $this->image;
+        }
+    }
 }
