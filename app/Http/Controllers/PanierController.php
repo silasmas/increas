@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Panier;
+use Illuminate\Http\Request;
 use App\Http\Requests\StorePanierRequest;
 use App\Http\Requests\UpdatePanierRequest;
+use App\Models\Message;
 
 class PanierController extends Controller
 {
@@ -30,6 +32,33 @@ class PanierController extends Controller
     public function store(StorePanierRequest $request)
     {
         //
+    }
+    public function sendMessage(Request $request)
+    {
+        $rep = Message::create(
+            [
+                "fullname" => $request->name,
+                "phone" => $request->phone,
+                "email" => $request->email,
+                "sujet" => $request->sujet,
+                "content" => $request->message,
+            ]
+        );
+        if ($rep) {
+            return response()->json(
+                [
+                    'reponse' => true,
+                    'msg' => 'Message envoyé avec succès',
+                ]
+            );
+        } else {
+            return response()->json(
+                [
+                    'reponse' => false,
+                    'msg' => 'Erreur',
+                ]
+            );
+        }
     }
 
     /**

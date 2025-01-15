@@ -1,133 +1,559 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="zxx">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>INCREAS| Coming Soon</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="{{ asset('comming/logo1.png') }}" type="image/x-icon">
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+	<!-- Ico Font CSS -->
+	<link rel="stylesheet" href="{{ asset('comming/css/icofont.css') }} ">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="{{ asset('comming/css/bootstrap.min.css') }} ">
+	<!-- Style CSS -->
+	<link rel="stylesheet" href="{{ asset('comming/css/style.css') }} ">
+	<!-- Responsive CSS -->
+	<link rel="stylesheet" href="{{ asset('comming/css/responsive.css') }} ">
 
-        <title>Laravel</title>
+	<!--[if lt IE 9 ]>
+	<script src="js/modernizr-3.5.0.min.js"></script>
+	<![endif]-->
+</head>
+<body class="bg-img body-bg">
+	<!--[if lte IE 9]>
+	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+	<![endif]-->
+	<div class="canvas-area">
+		<canvas class="constellation"></canvas>
+	</div>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+	<!-- Preloader Starts -->
+	<div class="preloader-wrap">
+		<div class="preloader">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<!--/Preloader Ends -->
 
-        <!-- Styles -->
-        <style>
-            /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Figtree, sans-serif;font-feature-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::-webkit-backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.relative{position:relative}.mx-auto{margin-left:auto;margin-right:auto}.mx-6{margin-left:1.5rem;margin-right:1.5rem}.ml-4{margin-left:1rem}.mt-16{margin-top:4rem}.mt-6{margin-top:1.5rem}.mt-4{margin-top:1rem}.-mt-px{margin-top:-1px}.mr-1{margin-right:0.25rem}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.h-16{height:4rem}.h-7{height:1.75rem}.h-6{height:1.5rem}.h-5{height:1.25rem}.min-h-screen{min-height:100vh}.w-auto{width:auto}.w-16{width:4rem}.w-7{width:1.75rem}.w-6{width:1.5rem}.w-5{width:1.25rem}.max-w-7xl{max-width:80rem}.shrink-0{flex-shrink:0}.scale-100{--tw-scale-x:1;--tw-scale-y:1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.items-center{align-items:center}.justify-center{justify-content:center}.gap-6{gap:1.5rem}.gap-4{gap:1rem}.self-center{align-self:center}.rounded-lg{border-radius:0.5rem}.rounded-full{border-radius:9999px}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity))}.bg-dots-darker{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E")}.from-gray-700\/50{--tw-gradient-from:rgb(55 65 81 / 0.5);--tw-gradient-to:rgb(55 65 81 / 0);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0);--tw-gradient-stops:var(--tw-gradient-from), transparent, var(--tw-gradient-to)}.bg-center{background-position:center}.stroke-red-500{stroke:#ef4444}.stroke-gray-400{stroke:#9ca3af}.p-6{padding:1.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.text-center{text-align:center}.text-right{text-align:right}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-gray-500\/20{--tw-shadow-color:rgb(107 114 128 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.selection\:bg-red-500 *::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.selection\:bg-red-500::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.hover\:text-gray-900:hover{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.hover\:text-gray-700:hover{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity))}.focus\:rounded-sm:focus{border-radius:0.125rem}.focus\:outline:focus{outline-style:solid}.focus\:outline-2:focus{outline-width:2px}.focus\:outline-red-500:focus{outline-color:#ef4444}.group:hover .group-hover\:stroke-gray-600{stroke:#4b5563}.z-10{z-index: 10}@media (prefers-reduced-motion: no-preference){.motion-safe\:hover\:scale-\[1\.01\]:hover{--tw-scale-x:1.01;--tw-scale-y:1.01;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}}@media (prefers-color-scheme: dark){.dark\:bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity))}.dark\:bg-gray-800\/50{background-color:rgb(31 41 55 / 0.5)}.dark\:bg-red-800\/20{background-color:rgb(153 27 27 / 0.2)}.dark\:bg-dots-lighter{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E")}.dark\:bg-gradient-to-bl{background-image:linear-gradient(to bottom left, var(--tw-gradient-stops))}.dark\:stroke-gray-600{stroke:#4b5563}.dark\:text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity))}.dark\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.dark\:shadow-none{--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.dark\:ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.dark\:ring-inset{--tw-ring-inset:inset}.dark\:ring-white\/5{--tw-ring-color:rgb(255 255 255 / 0.05)}.dark\:hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.group:hover .dark\:group-hover\:stroke-gray-400{stroke:#9ca3af}}@media (min-width: 640px){.sm\:fixed{position:fixed}.sm\:top-0{top:0px}.sm\:right-0{right:0px}.sm\:ml-0{margin-left:0px}.sm\:flex{display:flex}.sm\:items-center{align-items:center}.sm\:justify-center{justify-content:center}.sm\:justify-between{justify-content:space-between}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}@media (min-width: 1024px){.lg\:gap-8{gap:2rem}.lg\:p-8{padding:2rem}}
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-            @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+	<!-- main container starts -->
+	<div class="bg-img color-blue main-container">
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+		<!-- Main Header Starts -->
+		<header class="fixed fixed-top xs-no-positioning main-header">
+			<div class="container-fluid">
+				<div class="row clearfix">
+					<div class="pull-right clearfix col-xs-6 exs-full-width">
+						<div class="pull-right header-right">
+							<ul class="list-inline social-icons">
+								<li><a href="#" target="_blank"><i class="icofont icofont-social-facebook"></i></a></li>
+								<li><a href="#" target="_blank"><i class="icofont icofont-social-twitter"></i></a></li>
+								<li><a href="#" target="_blank"><i class="icofont icofont-social-pinterest"></i></a></li>
+								<li><a href="#" target="_blank"><i class="icofont icofont-social-dribbble"></i></a></li>
+							</ul>
+						</div>
+					</div><!-- /end col- -->
 
-            <div class="max-w-7xl mx-auto p-6 lg:p-8">
-                <div class="flex justify-center">
-                    <svg viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto bg-gray-100 dark:bg-gray-900">
-                        <path d="M61.8548 14.6253C61.8778 14.7102 61.8895 14.7978 61.8897 14.8858V28.5615C61.8898 28.737 61.8434 28.9095 61.7554 29.0614C61.6675 29.2132 61.5409 29.3392 61.3887 29.4265L49.9104 36.0351V49.1337C49.9104 49.4902 49.7209 49.8192 49.4118 49.9987L25.4519 63.7916C25.3971 63.8227 25.3372 63.8427 25.2774 63.8639C25.255 63.8714 25.2338 63.8851 25.2101 63.8913C25.0426 63.9354 24.8666 63.9354 24.6991 63.8913C24.6716 63.8838 24.6467 63.8689 24.6205 63.8589C24.5657 63.8389 24.5084 63.8215 24.456 63.7916L0.501061 49.9987C0.348882 49.9113 0.222437 49.7853 0.134469 49.6334C0.0465019 49.4816 0.000120578 49.3092 0 49.1337L0 8.10652C0 8.01678 0.0124642 7.92953 0.0348998 7.84477C0.0423783 7.8161 0.0598282 7.78993 0.0697995 7.76126C0.0884958 7.70891 0.105946 7.65531 0.133367 7.6067C0.152063 7.5743 0.179485 7.54812 0.20192 7.51821C0.230588 7.47832 0.256763 7.43719 0.290416 7.40229C0.319084 7.37362 0.356476 7.35243 0.388883 7.32751C0.425029 7.29759 0.457436 7.26518 0.498568 7.2415L12.4779 0.345059C12.6296 0.257786 12.8015 0.211853 12.9765 0.211853C13.1515 0.211853 13.3234 0.257786 13.475 0.345059L25.4531 7.2415H25.4556C25.4955 7.26643 25.5292 7.29759 25.5653 7.32626C25.5977 7.35119 25.6339 7.37362 25.6625 7.40104C25.6974 7.43719 25.7224 7.47832 25.7523 7.51821C25.7735 7.54812 25.8021 7.5743 25.8196 7.6067C25.8483 7.65656 25.8645 7.70891 25.8844 7.76126C25.8944 7.78993 25.9118 7.8161 25.9193 7.84602C25.9423 7.93096 25.954 8.01853 25.9542 8.10652V33.7317L35.9355 27.9844V14.8846C35.9355 14.7973 35.948 14.7088 35.9704 14.6253C35.9792 14.5954 35.9954 14.5692 36.0053 14.5405C36.0253 14.4882 36.0427 14.4346 36.0702 14.386C36.0888 14.3536 36.1163 14.3274 36.1375 14.2975C36.1674 14.2576 36.1923 14.2165 36.2272 14.1816C36.2559 14.1529 36.292 14.1317 36.3244 14.1068C36.3618 14.0769 36.3942 14.0445 36.4341 14.0208L48.4147 7.12434C48.5663 7.03694 48.7383 6.99094 48.9133 6.99094C49.0883 6.99094 49.2602 7.03694 49.4118 7.12434L61.3899 14.0208C61.4323 14.0457 61.4647 14.0769 61.5021 14.1055C61.5333 14.1305 61.5694 14.1529 61.5981 14.1803C61.633 14.2165 61.6579 14.2576 61.6878 14.2975C61.7103 14.3274 61.7377 14.3536 61.7551 14.386C61.7838 14.4346 61.8 14.4882 61.8199 14.5405C61.8312 14.5692 61.8474 14.5954 61.8548 14.6253ZM59.893 27.9844V16.6121L55.7013 19.0252L49.9104 22.3593V33.7317L59.8942 27.9844H59.893ZM47.9149 48.5566V37.1768L42.2187 40.4299L25.953 49.7133V61.2003L47.9149 48.5566ZM1.99677 9.83281V48.5566L23.9562 61.199V49.7145L12.4841 43.2219L12.4804 43.2194L12.4754 43.2169C12.4368 43.1945 12.4044 43.1621 12.3682 43.1347C12.3371 43.1097 12.3009 43.0898 12.2735 43.0624L12.271 43.0586C12.2386 43.0275 12.2162 42.9888 12.1887 42.9539C12.1638 42.9203 12.1339 42.8916 12.114 42.8567L12.1127 42.853C12.0903 42.8156 12.0766 42.7707 12.0604 42.7283C12.0442 42.6909 12.023 42.656 12.013 42.6161C12.0005 42.5688 11.998 42.5177 11.9931 42.4691C11.9881 42.4317 11.9781 42.3943 11.9781 42.3569V15.5801L6.18848 12.2446L1.99677 9.83281ZM12.9777 2.36177L2.99764 8.10652L12.9752 13.8513L22.9541 8.10527L12.9752 2.36177H12.9777ZM18.1678 38.2138L23.9574 34.8809V9.83281L19.7657 12.2459L13.9749 15.5801V40.6281L18.1678 38.2138ZM48.9133 9.14105L38.9344 14.8858L48.9133 20.6305L58.8909 14.8846L48.9133 9.14105ZM47.9149 22.3593L42.124 19.0252L37.9323 16.6121V27.9844L43.7219 31.3174L47.9149 33.7317V22.3593ZM24.9533 47.987L39.59 39.631L46.9065 35.4555L36.9352 29.7145L25.4544 36.3242L14.9907 42.3482L24.9533 47.987Z" fill="#FF2D20"/>
-                    </svg>
-                </div>
+					<div class="col-xs-6 exs-full-width">
+						<div class="logo">
+							<a href="#"><img src="{{ asset('comming/logo1.png') }}" width="250" height="100" alt="Logo"></a>
+						</div>
+					</div><!-- /end col- -->
+				</div><!-- /end row -->
+			</div><!-- /end container-fluid -->
+		</header>
+		<!-- /Main Header Ends -->
 
-                <div class="mt-16">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                        <a href="https://laravel.com/docs" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                                    </svg>
-                                </div>
+		<!-- Main Body Starts -->
+		<div class="fixed fixed-middle xs-no-positioning main-body">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="tab-container">
 
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Documentation</h2>
+							<ul class="pull-left tab-controller xs-no-positioning tab-style-two" role="tablist">
+								<li role="presentation" class="active">
+									<a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a>
+								</li>
 
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel has wonderful documentation covering every aspect of the framework. Whether you are a newcomer or have prior experience with Laravel, we recommend reading our documentation from beginning to end.
-                                </p>
-                            </div>
+								<li role="presentation">
+									<a href="#about" aria-controls="about" role="tab" data-toggle="tab">A propos</a>
+								</li>
 
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
+								<li role="presentation">
+									<a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">Contact</a>
+								</li>
 
-                        <a href="https://laracasts.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                                    </svg>
-                                </div>
+							</ul><!-- /tab controlls -->
 
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laracasts</h2>
+							<div class="tab-content">
 
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </p>
-                            </div>
+								<!-- Single tab content starts -->
+								<div role="tabpanel" class="tab-pane fade in active text-center home-tab" id="home">
+									<div class="tab-heading">
+										<h1 class="primary-title">Nous arrivons bientôt </h1>
+										<p class="text-light">Notre nouveau site web excitant arrive bientôt ! Revenez nous voir plus tard...</p>
+									</div><!-- /end tab-heading -->
 
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
+									<div class="tab-body">
+										<div class="padding-big countdown-timer">
+											<input type="hidden" id="count-down-date" name="count-down-date" value="31 Dec, 2019 12:00:00">
+											<h2 class="expired-text hidden">Bienvenu chez IN.CREAS</h2>
+											<ul class="list-inline count-down-list" id="countdown-boxes">
+												<li class="gray-bg-1" id="years"><span class="years"></span><span>Years</span></li>
+												<li class="gray-bg-1" id="months"><span class="months"></span><span>Months</span></li>
+												<li class="gray-bg-1" id="days"><span class="days"></span><span>Days</span></li>
+												<li class="gray-bg-1" id="hours"><span class="hours"></span><span>Hours</span></li>
+												<li class="gray-bg-1" id="minutes"><span class="minutes"></span><span>Minutes</span></li>
+												<li class="gray-bg-1" id="seconds"><span class="seconds"></span><span>Seconds</span></li>
+											</ul>
+										</div><!-- /end countdown-timer -->
 
-                        <a href="https://laravel-news.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
-                                    </svg>
-                                </div>
+										<div class="subscribe-form">
+											<h4>Abonnez-vous à notre newsletter</h4>
+											<form action="#" class="form-inline">
+												<input type="email" name="email" class="form-control btn-rounded" placeholder="Adresse mail">
+												<button type="submit" class="btn btn-cyan btn-round">Envoyer</button>
+											</form>
+										</div><!-- /end subscribe-form -->
+									</div><!-- /end tab-body -->
+								</div>
+								<!-- /Single tab content ends -->
 
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laravel News</h2>
+								<!-- Single tab content starts -->
+								<div role="tabpanel" class="tab-pane fade about-tab" id="about">
+									<div class="tab-heading">
+										<h2 class="primary-title">À propos de nous</h2>
+									</div><!-- /end tab-heading -->
 
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </p>
-                            </div>
+									<div class="tab-body">
+										<p>
+                                            Bienvenue sur <b>INCREAS</b>, votre plateforme de confiance dédiée à l'achat de projets Photoshop, d'images professionnelles et de vidéos de qualité ! Que vous soyez un créatif en quête d'inspiration, un designer souhaitant gagner du temps, ou une entreprise cherchant des visuels percutants pour vos campagnes, **INCREAS* a tout ce qu'il vous faut.
 
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
+                                        </p>
 
-                        <div class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.115 5.19l.319 1.913A6 6 0 008.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 002.288-4.042 1.087 1.087 0 00-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 01-.98-.314l-.295-.295a1.125 1.125 0 010-1.591l.13-.132a1.125 1.125 0 011.3-.21l.603.302a.809.809 0 001.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 001.528-1.732l.146-.292M6.115 5.19A9 9 0 1017.18 4.64M6.115 5.19A8.965 8.965 0 0112 3c1.929 0 3.716.607 5.18 1.64" />
-                                    </svg>
-                                </div>
+                                        <a href="#" class="readmore-link" data-toggle="modal" data-target="#aboutus">Voir plus <i class="icofont icofont-long-arrow-right"></i></a>
+									</div><!-- /end tab-body -->
+								</div>
+								<!-- /Single tab content ends -->
 
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</h2>
+								<!-- Single tab content starts -->
+								<div role="tabpanel" class="tab-pane fade text-center contact-tab" id="contact">
+									<div class="tab-heading">
+										<h1 class="primary-title">Nous contacter</h1>
+										<p>Notre nouveau site web arrive bientôt ! Revenez nous voir plus tard...</p>
+									</div><!-- /end tab-heading -->
 
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Forge</a>, <a href="https://vapor.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Vapor</a>, <a href="https://nova.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Nova</a>, and <a href="https://envoyer.io" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Telescope</a>, and more.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+									<div class="tab-body">
+										<div class="pt-70 contact-form">
+											{{-- <form id="contact-form" action="index.html" class="clearfix">
+												<!-- IF MAIL SENT SUCCESSFULLY -->
+												<div class="success">Your message has been sent successfully.</div>
+												<!-- IF MAIL SENDING UNSUCCESSFULL
+												-->
+												<div class="error">E-mail must be valid and message must be longer than 1 character.</div>
+												<div class="pull-left form-field field-half-width">
+													<input type="text" id="name" name="name" class="form-control" placeholder="Full Name">
+													<i class="icofont icofont-user"></i>
+												</div>
+												<div class="pull-right form-field field-half-width">
+													<input type="email" id="email_address" name="email" class="form-control" placeholder="Email Address">
+													<i class="icofont icofont-envelope"></i>
+												</div>
+												<div class="pull-right form-field field-full-width">
+													<textarea id="message" name="message" class="form-control" placeholder="Message"></textarea>
+												</div>
+												<button type="submit" id="submit" name="submit" class="btn btn-cyan btn-big">Send</button>
+											</form><!-- /end contact-form --> --}}
+                                            <div class="padding-big text-center contact-form">
+                                                <form id="popup-contact-form" action="{{ route('sendMessage') }}" class="clearfix">
+                                                @csrf
+                                                    <!-- IF MAIL SENT SUCCESSFULLY -->
+                                                    <div class="success">
+                                                        Votre message a été envoyé avec succès.</div>
+                                                    <!-- IF MAIL SENDING UNSUCCESSFULL
+                                                    -->
+                                                    <div class="error">Le nom ne peut pas être vide, l'adresse e-mail doit être valide, le sujet ne peut pas être vide et le message doit contenir plus d'un caractère.</div>
+                                                    <div class="pull-left form-field field-half-width">
+                                                        <input type="text" id="popup_name" name="name" class="form-control" placeholder="Nom au complet">
+                                                        <i class="icofont icofont-user"></i>
+                                                    </div>
+                                                    <div class="pull-right form-field field-half-width">
+                                                        <input type="email" id="popup_email_address" name="email" class="form-control" placeholder="Adresse Email">
+                                                        <i class="icofont icofont-envelope"></i>
+                                                    </div>
+                                                    <div class="pull-left form-field field-half-width">
+                                                        <input type="phone" id="popup_phone" name="phone" class="form-control" placeholder="Numéro de téléphone">
+                                                        <i class="icofont icofont-phone"></i>
+                                                    </div>
+                                                    <div class="pull-right form-field field-half-width">
+                                                        <input type="text" id="popup_sujet" name="sujet" class="form-control" placeholder="Votre sujet">
+                                                        <i class="icofont icofont-envelope"></i>
+                                                    </div>
+                                                    <div class="pull-right form-field field-full-width">
+                                                        <textarea id="popup_message" name="message" class="form-control" placeholder="Message"></textarea>
+                                                    </div>
+                                                    <button type="submit" name="submit" id="popup_submit" class="btn btn-cyan btn-big">Envoyer</button>
+                                                </form><!-- /end contact-form -->
+                                            </div><!-- /end contact-form -->
+										</div><!-- /end contact-form -->
+									</div><!-- /end tab-body -->
+								</div>
+								<!-- /Single tab content ends -->
 
-                <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm sm:text-left">
-                        &nbsp;
-                    </div>
+							</div><!-- /tab-content -->
+						</div>
+					</div><!-- /end col-md-12 -->
+				</div><!-- /end row -->
+			</div><!-- /end container-fluid -->
+		</div>
+		<!-- /Main Body Ends -->
 
-                    <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
+		<!-- Main Footer Starts -->
+		<footer class="fixed fixed-bottom xs-no-positioning main-footer">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="footer-content">
+							<div class="footer-left">
+								<ul class="list-inline footer-menu">
+									{{-- <li><a href="#" data-toggle="modal" data-target="#helpme">Help</a></li>
+									<li><a href="#" data-toggle="modal" data-target="#privacy">Privacy</a></li> --}}
+									<li><a href="#" data-toggle="modal" data-target="#contactus">Contact</a></li>
+									<li><a href="#" data-toggle="modal" data-target="#faq">FAQ</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!-- /end container-fluid -->
+		</footer>
+		<!-- /Main Footer Ends -->
+
+	</div>
+	<!-- /main container ends -->
+
+	<!-- About Popup Content -->
+	<div class="modal fade" id="aboutus" tabindex="-1" role="dialog" aria-labelledby="aboutusLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h3 class="text-center" id="aboutusLabel">À propos de nous</h3>
+				</div><!-- /end modal-header -->
+
+				<div class="modal-body">
+					<p>
+                        Bienvenue sur <b>INCREAS</b>, votre plateforme de confiance dédiée à l'achat de projets Photoshop, d'images professionnelles et de vidéos de qualité ! Que vous soyez un créatif en quête d'inspiration, un designer souhaitant gagner du temps, ou une entreprise cherchant des visuels percutants pour vos campagnes, <b>INCREAS</b> a tout ce qu'il vous faut.
+
+                    <b>Notre mission</b>
+
+                    Chez <b>INCREAS</b>, nous nous engageons à rendre la création visuelle et audiovisuelle accessible à tous. En plus de proposer une vaste sélection de projets Photoshop et d'images, nous offrons également des vidéos professionnelles, prêtes à être utilisées dans vos projets. Que ce soit pour un site web, une publicité, ou tout autre besoin visuel, vous trouverez chez nous les ressources adaptées à vos exigences créatives.
+
+                    <b>Une collection de ressources de qualité</b>
+                    Notre équipe de designers et vidéastes passionnés met à votre disposition des projets Photoshop soigneusement réalisés, des images haute résolution, ainsi que des vidéos captivantes et prêtes à être intégrées dans vos projets. Chaque fichier est conçu pour être facilement modifiable et compatible avec les dernières versions des logiciels de création, garantissant une utilisation simple et efficace.
+                        <ul>
+                            <li>
+                                <b>Projets Photoshop</b>  : Des templates modernes, des maquettes professionnelles et des éléments graphiques faciles à personnaliser.
+                            </li>
+                            <li>
+                                <b>Images</b> : Une large gamme d'images de haute qualité adaptées à différents secteurs et styles.
+                            </li>
+                            <li>
+                                <b>Vidéos</b> : Des vidéos professionnelles et des séquences animées, prêtes à l’emploi pour dynamiser vos projets de communication, de publicité, ou de contenu digital.
+
+                            </li>
+                        </ul>
+
+                    <b>Pourquoi choisir INCREAS ?</b>
+                        <ul>
+                            <li>
+                                <b>Qualité professionnelle</b> : Chaque projet, image et vidéo est conçu pour répondre aux standards les plus élevés en matière de design et de production audiovisuelle.
+
+                            </li>
+                            <li>
+
+                                <b>Variété</b> : Une immense bibliothèque de visuels, d'animations et de vidéos couvrant de nombreux thèmes : marketing, web design, mode, entreprise, événements, et bien plus encore.
+                            </li>
+                            <li>
+                                <b>Facilité d’utilisation</b> : Tous nos produits sont livrés dans des formats optimisés et sont compatibles avec les logiciels les plus populaires comme Photoshop, After Effects, Premiere Pro, etc.
+
+                            </li>
+                            <li>
+
+                                <b>Accessibilité</b> : Profitez de ressources de qualité à des prix abordables, avec un accès instantané à vos achats après chaque commande.
+                            </li>
+                        </ul>
+
+                    Que vous soyez un professionnel du design, un vidéaste en quête de nouvelles séquences, ou un amateur passionné, *INCREAS* est l'outil qu’il vous faut pour donner vie à vos idées et réaliser vos projets créatifs.
+
+                    *Rejoignez-nous dès maintenant sur INCREAS et explorez notre collection de projets, images et vidéos !*
+                    </p>
+
+                </div><!-- /end modal-body -->
+
+				<div class="modal-footer">
+					<ul class="list-inline pull-left social-icons">
+						<li><a href="#"><i class="icofont icofont-social-facebook"></i></a></li>
+						<li><a href="#"><i class="icofont icofont-social-twitter"></i></a></li>
+						<li><a href="#"><i class="icofont icofont-social-pinterest"></i></a></li>
+						<li><a href="#"><i class="icofont icofont-social-dribbble"></i></a></li>
+					</ul>
+					<button type="button" class="btn btn-cyan" data-dismiss="modal">Fermer</button>
+				</div><!-- /end modal-footer -->
+
+			</div><!-- /end modal-content -->
+		</div><!-- /end modal-dialog -->
+	</div>
+	<!-- /end About Popup Content -->
+
+	<!-- Help Popup Content -->
+	<div class="modal fade" id="helpme" tabindex="-1" role="dialog" aria-labelledby="helpmeLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h3 class="text-center" id="helpmeLabel">Help</h3>
+				</div><!-- /end modal-header -->
+
+				<div class="modal-body">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum similique odio nam perferendis ab, tempore cupiditate maiores quia, sunt rem beatae, ipsum at error! Labore laboriosam rerum odit et ipsum optio explicabo unde. Quod, rem quam totam itaque eius dolorem repudiandae porro eligendi illo quaerat sequi vitae qui. Quibusdam libero a hic odio, aperiam repellat facilis officia, quia maxime minus. Explicabo sequi laudantium qui animi fugiat nihil recusandae, eum sed esse doloremque modi quasi expedita voluptate perspiciatis nulla voluptatem nobis accusamus dolorem libero cumque repellat quam, odit nisi rerum. Quisquam, iure officiis minus quibusdam aut alias accusamus sed incidunt voluptate nisi dolorem, aliquam repellat adipisci vero at</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa impedit, odit numquam perferendis eaque magnam deserunt illo repellendus excepturi, officiis id consequuntur hic voluptatem inventore maxime iure debitis, pariatur porro recusandae. Eaque totam neque sequi beatae, ut accusantium amet eum incidunt nesciunt? Repellat dignissimos sit sequi ratione, possimus. Veritatis ab consequatur praesentium quasi. Illum eos dolorum sapiente cum beatae animi, et accusamus laboriosam repudiandae quidem culpa odit laudantium, reiciendis hic commodi cupiditate magnam aliquam deleniti modi libero! Quisquam possimus maxime maiores perspiciatis dolorum neque modi earum dolores! Ad nobis odit repellat obcaecati, qui, eos, necessitatibus, a est inventore doloremque itaque!</p>
+				</div><!-- /end modal-body -->
+
+				<div class="modal-footer">
+					<ul class="list-inline pull-left social-icons">
+						<li><a href="#"><i class="icofont icofont-social-facebook"></i></a></li>
+						<li><a href="#"><i class="icofont icofont-social-twitter"></i></a></li>
+						<li><a href="#"><i class="icofont icofont-social-pinterest"></i></a></li>
+						<li><a href="#"><i class="icofont icofont-social-dribbble"></i></a></li>
+					</ul>
+					<button type="button" class="btn btn-cyan" data-dismiss="modal">Close</button>
+				</div><!-- /end modal-footer -->
+
+			</div><!-- /end modal-content -->
+		</div><!-- /end modal-dialog -->
+	</div>
+	<!-- /end Help Popup Content -->
+
+	<!-- Privacy Popup Content -->
+	<div class="modal fade" id="privacy" tabindex="-1" role="dialog" aria-labelledby="privacyLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h3 class="text-center" id="privacyLabel">Privacy</h3>
+				</div><!-- /end modal-header -->
+
+				<div class="modal-body">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum similique odio nam perferendis ab, tempore cupiditate maiores quia, sunt rem beatae, ipsum at error! Labore laboriosam rerum odit et ipsum optio explicabo unde. Quod, rem quam totam itaque eius dolorem repudiandae porro eligendi illo quaerat sequi vitae qui. Quibusdam libero a hic odio, aperiam repellat facilis officia, quia maxime minus. Explicabo sequi laudantium qui animi fugiat nihil recusandae, eum sed esse doloremque modi quasi expedita voluptate perspiciatis nulla voluptatem nobis accusamus dolorem libero cumque repellat quam, odit nisi rerum. Quisquam, iure officiis minus quibusdam aut alias accusamus sed incidunt voluptate nisi dolorem, aliquam repellat adipisci vero at</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa impedit, odit numquam perferendis eaque magnam deserunt illo repellendus excepturi, officiis id consequuntur hic voluptatem inventore maxime iure debitis, pariatur porro recusandae. Eaque totam neque sequi beatae, ut accusantium amet eum incidunt nesciunt? Repellat dignissimos sit sequi ratione, possimus. Veritatis ab consequatur praesentium quasi. Illum eos dolorum sapiente cum beatae animi, et accusamus laboriosam repudiandae quidem culpa odit laudantium, reiciendis hic commodi cupiditate magnam aliquam deleniti modi libero! Quisquam possimus maxime maiores perspiciatis dolorum neque modi earum dolores! Ad nobis odit repellat obcaecati, qui, eos, necessitatibus, a est inventore doloremque itaque!</p>
+				</div><!-- /end modal-body -->
+
+				<div class="modal-footer">
+					<ul class="list-inline pull-left social-icons">
+						<li><a href="#"><i class="icofont icofont-social-facebook"></i></a></li>
+						<li><a href="#"><i class="icofont icofont-social-twitter"></i></a></li>
+						<li><a href="#"><i class="icofont icofont-social-pinterest"></i></a></li>
+						<li><a href="#"><i class="icofont icofont-social-dribbble"></i></a></li>
+					</ul>
+					<button type="button" class="btn btn-cyan" data-dismiss="modal">Close</button>
+				</div><!-- /end modal-footer -->
+
+			</div><!-- /end modal-content -->
+		</div><!-- /end modal-dialog -->
+	</div>
+	<!-- /end Privacy Popup Content -->
+
+	<!-- Contact Popup Content -->
+	<div class="modal fade" id="contactus" tabindex="-1" role="dialog" aria-labelledby="contactusLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h3 class="text-center" id="contactusLabel">Contact Us</h3>
+				</div><!-- /end modal-header -->
+
+				<div class="modal-body">
+					<div class="padding-big text-center contact-form">
+						<form id="popup-contact-form" action="{{ route('sendMessage') }}" class="clearfix">
+                        @csrf
+							<!-- IF MAIL SENT SUCCESSFULLY -->
+							<div class="success">
+                                Votre message a été envoyé avec succès.</div>
+							<!-- IF MAIL SENDING UNSUCCESSFULL
+							-->
+							<div class="error">Le nom ne peut pas être vide, l'adresse e-mail doit être valide, le sujet ne peut pas être vide et le message doit contenir plus d'un caractère.</div>
+							<div class="pull-left form-field field-half-width">
+								<input type="text" id="popup_name" name="name" class="form-control" placeholder="Nom au complet">
+								<i class="icofont icofont-user"></i>
+							</div>
+							<div class="pull-right form-field field-half-width">
+								<input type="email" id="popup_email_address" name="email" class="form-control" placeholder="Adresse Email">
+								<i class="icofont icofont-envelope"></i>
+							</div>
+							<div class="pull-left form-field field-half-width">
+								<input type="phone" id="popup_phone" name="phone" class="form-control" placeholder="Numéro de téléphone">
+								<i class="icofont icofont-phone"></i>
+							</div>
+							<div class="pull-right form-field field-half-width">
+								<input type="text" id="popup_sujet" name="sujet" class="form-control" placeholder="Votre sujet">
+								<i class="icofont icofont-envelope"></i>
+							</div>
+							<div class="pull-right form-field field-full-width">
+								<textarea id="popup_message" name="message" class="form-control" placeholder="Message"></textarea>
+							</div>
+							<button type="submit" name="submit" id="popup_submit" class="btn btn-cyan btn-big">Envoyer</button>
+						</form><!-- /end contact-form -->
+					</div><!-- /end contact-form -->
+				</div><!-- /end modal-body -->
+
+				<div class="modal-footer">
+					<ul class="list-inline pull-left social-icons">
+						<li><a href="#"><i class="icofont icofont-social-facebook"></i></a></li>
+						<li><a href="#"><i class="icofont icofont-social-twitter"></i></a></li>
+						<li><a href="#"><i class="icofont icofont-social-pinterest"></i></a></li>
+						<li><a href="#"><i class="icofont icofont-social-dribbble"></i></a></li>
+					</ul>
+					<button type="button" class="btn btn-cyan" data-dismiss="modal">Close</button>
+				</div><!-- /end modal-footer -->
+
+			</div><!-- /end modal-content -->
+		</div><!-- /end modal-dialog -->
+	</div>
+	<!-- /end Contact Popup Content -->
+
+	<!-- Faq Popup Content -->
+	<div class="modal fade" id="faq" tabindex="-1" role="dialog" aria-labelledby="faqLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h3 class="text-center" id="faqLabel">Faq</h3>
+				</div><!-- /end modal-header -->
+
+				<div class="modal-body">
+					<div class="panel-group" id="faqAccordion">
+						<!-- Single faq starts -->
+						<div class="panel panel-default">
+							<div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion" data-target="#q-0">
+								<h4 class="panel-title">
+									<a href="#" class="ing">Q: What is Lorem Ipsum?</a>
+								</h4>
+							</div>
+							<div id="q-0" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
+									</p>
+								</div>
+							</div>
+						</div>
+						<!-- /Single faq ends -->
+						<!-- Single faq starts -->
+						<div class="panel panel-default">
+							<div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#faqAccordion" data-target="#q-1">
+								<h4 class="panel-title">
+									<a href="#" class="ing">Q: Why do we use it?</a>
+								</h4>
+							</div>
+							<div id="q-1" class="panel-collapse collapse">
+								<div class="panel-body">
+									<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+								</div>
+							</div>
+						</div>
+						<!-- /Single faq ends -->
+						<!-- Single faq starts -->
+						<div class="panel panel-default">
+							<div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#faqAccordion" data-target="#q-3">
+								<h4 class="panel-title">
+									<a href="#" class="ing">Q: Where does it come from?</a>
+								</h4>
+							</div>
+							<div id="q-3" class="panel-collapse collapse">
+								<div class="panel-body">
+									<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.</p>
+								</div>
+							</div>
+						</div>
+						<!-- /Single faq ends -->
+						<!-- Single faq starts -->
+						<div class="panel panel-default">
+							<div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#faqAccordion" data-target="#q-4">
+								<h4 class="panel-title">
+									<a href="#" class="ing">Q: Where does it come from?</a>
+								</h4>
+							</div>
+							<div id="q-4" class="panel-collapse collapse">
+								<div class="panel-body">
+									<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.</p>
+								</div>
+							</div>
+						</div>
+						<!-- /Single faq ends -->
+					</div><!--/panel-group-->
+				</div><!-- /end modal-body -->
+
+				<div class="modal-footer">
+					<ul class="list-inline pull-left social-icons">
+						<li><a href="#"><i class="icofont icofont-social-facebook"></i></a></li>
+						<li><a href="#"><i class="icofont icofont-social-twitter"></i></a></li>
+						<li><a href="#"><i class="icofont icofont-social-pinterest"></i></a></li>
+						<li><a href="#"><i class="icofont icofont-social-dribbble"></i></a></li>
+					</ul>
+					<button type="button" class="btn btn-cyan" data-dismiss="modal">Close</button>
+				</div><!-- /end modal-footer -->
+
+			</div><!-- /end modal-content -->
+		</div><!-- /end modal-dialog -->
+	</div>
+	<!-- /end Faq Popup Content -->
+
+	<!--[if lt IE 8]>
+	<script src="js/modernizr-3.5.0.min.js"></script>
+	<![endif]-->
+	<!-- jQuery -->
+	<script src="{{ asset('comming/js/jquery-3.2.1.min.js') }} "></script>
+	<!-- Bootstrap JS -->
+	<script src="{{ asset('comming/js/bootstrap.min.js') }} "></script>
+	<!-- zepto JS -->
+	<script src="{{ asset('comming/js/zepto.min.js') }} "></script>
+	<!-- constellation JS -->
+	<script src="{{ asset('comming/js/constellation.min.js') }} "></script>
+	<!-- stars JS -->
+	<script src="{{ asset('comming/js/stars.js') }} "></script>
+	<!-- scripts -->
+	<script src="{{ asset('comming/js/scripts.js') }} "></script>
+	<script>
+		$('.canvas-area canvas').constellation({
+			star: {
+				width: 3,
+				color: '#27c9dc'
+			},
+			line: {
+				color: 'rgba(39, 201, 220,0.95)'
+			},
+			length: (window.innerWidth / 9),
+			radius: (window.innerWidth / 5)
+		});
+	</script>
+</body>
 </html>
