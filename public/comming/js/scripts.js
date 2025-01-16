@@ -317,7 +317,8 @@ jQuery(window).on('load', function(){
                         $(form)[0].reset();
 
                     } else {
-
+                        $('#newsletter-form .success').fadeOut(1000);
+                        $('#newsletter-form .error').text(data.msg).fadeIn(500);
                     }
                 }
             });

@@ -8,6 +8,8 @@ use App\Http\Requests\StorePanierRequest;
 use App\Http\Requests\UpdatePanierRequest;
 use App\Models\Message;
 use App\Models\Newsletter;
+use Illuminate\Support\Facades\Validator;
+
 
 class PanierController extends Controller
 {
@@ -36,6 +38,13 @@ class PanierController extends Controller
     }
     public function  addNewsletter(Request $request)
     {
+        $re =   Validator::make(
+            $request->all(),
+            [
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:newsletters'],
+            ]
+        );
+        if ($re->passes()) {
         $rep = Newsletter::create(
             [
                 "email" => $request->email,
@@ -56,6 +65,14 @@ class PanierController extends Controller
                 ]
             );
         }
+    } else {
+        return response()->json(
+            [
+                'reponse' => false,
+                'msg' => $re->errors()->first(),
+            ]
+        );
+    }
     }
     public function sendMessage(Request $request)
     {
