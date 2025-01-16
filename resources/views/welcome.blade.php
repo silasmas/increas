@@ -187,34 +187,34 @@
 												<button type="submit" id="submit" name="submit" class="btn btn-cyan btn-big">Send</button>
 											</form><!-- /end contact-form --> --}}
                                             <div class="padding-big text-center contact-form">
-                                                <form id="popup-contact-form" action="{{ route('sendMessage') }}" class="clearfix">
+                                                <form id="contact-form" action="{{ route('sendMessage') }}" class="clearfix">
                                                 @csrf
                                                     <!-- IF MAIL SENT SUCCESSFULLY -->
-                                                    <div class="success">
+                                                    <div class="csuccess" hidden style="color: green">
                                                         Votre message a été envoyé avec succès.</div>
                                                     <!-- IF MAIL SENDING UNSUCCESSFULL
                                                     -->
-                                                    <div class="error">Le nom ne peut pas être vide, l'adresse e-mail doit être valide, le sujet ne peut pas être vide et le message doit contenir plus d'un caractère.</div>
+                                                    <div class="cerror" hidden style="color: red">Le nom ne peut pas être vide, l'adresse e-mail doit être valide, le sujet ne peut pas être vide et le message doit contenir plus d'un caractère.</div>
                                                     <div class="pull-left form-field field-half-width">
-                                                        <input type="text" id="popup_name" name="name" class="form-control" placeholder="Nom au complet">
+                                                        <input type="text" id="cpopup_name" name="name" class="form-control" placeholder="Nom au complet">
                                                         <i class="icofont icofont-user"></i>
                                                     </div>
                                                     <div class="pull-right form-field field-half-width">
-                                                        <input type="email" id="popup_email_address" name="email" class="form-control" placeholder="Adresse Email">
+                                                        <input type="email" id="cpopup_email_address" name="email" class="form-control" placeholder="Adresse Email">
                                                         <i class="icofont icofont-envelope"></i>
                                                     </div>
                                                     <div class="pull-left form-field field-half-width">
-                                                        <input type="phone" id="popup_phone" name="phone" class="form-control" placeholder="Numéro de téléphone">
+                                                        <input type="phone" id="cpopup_phone" name="phone" class="form-control" placeholder="Numéro de téléphone">
                                                         <i class="icofont icofont-phone"></i>
                                                     </div>
                                                     <div class="pull-right form-field field-half-width">
-                                                        <input type="text" id="popup_sujet" name="sujet" class="form-control" placeholder="Votre sujet">
+                                                        <input type="text" id="cpopup_sujet" name="sujet" class="form-control" placeholder="Votre sujet">
                                                         <i class="icofont icofont-envelope"></i>
                                                     </div>
                                                     <div class="pull-right form-field field-full-width">
-                                                        <textarea id="popup_message" name="message" class="form-control" placeholder="Message"></textarea>
+                                                        <textarea id="cpopup_message" name="message" class="form-control" placeholder="Message"></textarea>
                                                     </div>
-                                                    <button type="submit" name="submit" id="popup_submit" class="btn btn-cyan btn-big">Envoyer</button>
+                                                    <button type="submit" name="submit" id="cpopup_submit" class="btn btn-cyan btn-big">Envoyer</button>
                                                 </form><!-- /end contact-form -->
                                             </div><!-- /end contact-form -->
 										</div><!-- /end contact-form -->
