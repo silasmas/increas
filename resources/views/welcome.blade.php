@@ -124,9 +124,17 @@
 
 										<div class="subscribe-form">
 											<h4>Abonnez-vous à notre newsletter</h4>
-											<form action="#" class="form-inline">
-												<input type="email" name="email" class="form-control btn-rounded" placeholder="Adresse mail">
+                                                <form id="newsletter-form" action="{{ route('addNewsletter') }}"  class="form-inline">
+                                                    @csrf
+
+												<input type="email" name="email" id="email" class="form-control btn-rounded" placeholder="Adresse mail">
+
 												<button type="submit" class="btn btn-cyan btn-round">Envoyer</button>
+                                                <!-- IF MAIL SENT SUCCESSFULLY -->
+                                                <div class="success d-none " hidden style="color: green"> Votre abonnement est fait avec succès.</div>
+                                                <!-- IF MAIL SENDING UNSUCCESSFULL
+                                                -->
+                                                <div class="error d-none" hidden style="color: red">L'adresse e-mail doit être valide.</div>
 											</form>
 										</div><!-- /end subscribe-form -->
 									</div><!-- /end tab-body -->

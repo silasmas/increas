@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StorePanierRequest;
 use App\Http\Requests\UpdatePanierRequest;
 use App\Models\Message;
+use App\Models\Newsletter;
 
 class PanierController extends Controller
 {
@@ -32,6 +33,29 @@ class PanierController extends Controller
     public function store(StorePanierRequest $request)
     {
         //
+    }
+    public function  addNewsletter(Request $request)
+    {
+        $rep = Newsletter::create(
+            [
+                "email" => $request->email,
+            ]
+        );
+        if ($rep) {
+            return response()->json(
+                [
+                    'reponse' => true,
+                    'msg' => 'Message envoyé avec succès',
+                ]
+            );
+        } else {
+            return response()->json(
+                [
+                    'reponse' => false,
+                    'msg' => 'Erreur',
+                ]
+            );
+        }
     }
     public function sendMessage(Request $request)
     {

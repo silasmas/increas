@@ -20,6 +20,7 @@ Route::get('/', function () {
 });
 
 Route::post('sendMessage', [PanierController::class,'sendMessage'])->name('sendMessage');
+Route::post('addNewsletter', [PanierController::class,'addNewsletter'])->name('addNewsletter');
 
 
 
