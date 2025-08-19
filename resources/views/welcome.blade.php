@@ -17,7 +17,9 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="{{ asset('assets/logo/lg.png') }}" type="image/x-icon">
     <!-- Google font -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet"> --}}
+    <link href="https://fonts.googleapis.com/css2?family=Antonyo&display=swap" rel="stylesheet">
+
     <!-- Ico Font CSS -->
     <link rel="stylesheet" href="{{ asset('comming/css/icofont.css') }} ">
     <!-- Bootstrap CSS -->
