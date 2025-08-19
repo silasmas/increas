@@ -845,7 +845,7 @@ textarea.form-control {
 /* Animation disparition */
 .fade-out {
   opacity: 0;
-  transition: opacity 1s ease;
+  transition: opacity 3s ease;
 }
 
 
