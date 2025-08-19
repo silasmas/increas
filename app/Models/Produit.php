@@ -25,4 +25,12 @@ class Produit extends Model
     {
         return $this->belongsToMany(Panier::class);
     }
+
+	public function tags()
+	{
+		
+		return $this->belongsToMany(\App\Models\Tag::class);
+	
+	}
+
 }
