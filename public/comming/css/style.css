@@ -813,13 +813,14 @@ textarea.form-control {
 } */
 
 /* Preloader */
+/* Preloader */
 .preloader-wrap {
   position: fixed;
   top: 0;
-  bottom: 0;
   left: 0;
   right: 0;
-  z-index: 99;
+  bottom: 0;
+  z-index: 9999;
   height: 100%;
   width: 100%;
   background-color: #28c9db; /* couleur de fond */
@@ -828,15 +829,25 @@ textarea.form-control {
   justify-content: center;
 }
 
-.preloader {
-  text-align: center;
-}
-
+/* Logo */
 .preloader-img {
-  width: 100px; /* adapte la taille à ton image */
+  width: 200px;   /* augmente la taille du logo */
   height: auto;
   animation: blink 1.5s infinite ease-in-out;
 }
+
+/* Animation clignotement */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Animation disparition */
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
 
 /* Animation clignotement */
 @keyframes blink {

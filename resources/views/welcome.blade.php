@@ -15,7 +15,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="{{ asset('comming/lg.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('assets/logo/lg.png') }}" type="image/x-icon">
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     <!-- Ico Font CSS -->
@@ -83,7 +83,7 @@
 
                     <div class="col-xs-6 exs-full-width">
                         <div class="logo">
-                            <a href="#"><img src="{{ asset('comming/logo1.png') }}" width="250" height="100"
+                            <a href="#"><img src="{{ asset('assets/logo/lg.png') }}" width="150" height="150"
                                     alt="Logo"></a>
                         </div>
                     </div><!-- /end col- -->
@@ -674,6 +674,19 @@
     <script src="{{ asset('comming/js/stars.js') }} "></script>
     <!-- scripts -->
     <script src="{{ asset('comming/js/scripts.js') }} "></script>
+   <script>
+  window.addEventListener("load", function() {
+    // ⏳ garde le loader 1 minute (60000 ms) ou 2 minutes (120000 ms)
+    const DUREE = 120000; // ← change à 120000 pour 2 minutes
+
+    setTimeout(() => {
+      const preloader = document.querySelector(".preloader-wrap");
+      preloader.classList.add("fade-out");
+      setTimeout(() => preloader.style.display = "none", 1000);
+    }, DUREE);
+  });
+</script>
+
     <script>
         $('.canvas-area canvas').constellation({
             star: {
