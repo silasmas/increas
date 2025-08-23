@@ -4,29 +4,44 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
-    /**
-     * Run the migrations.
-     */
+return new class extends Migration {
     public function up(): void
     {
         Schema::create('commandes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Utilisateur
-            $table->foreignId('produit_id')->constrained()->onDelete('cascade'); // Produit
-            $table->decimal('price', 10, 2); // Prix au moment de l'achat
-            $table->string('curency');
-            $table->integer('quantity')->default(1); // Quantité
-            $table->decimal('total_price', 10, 2); // Prix total
-            $table->enum('status', ['pending', 'completed', 'cancelled'])->default('pending'); // Statut
+
+            // Identifiants
+            $table->string('numero')->unique();   // ex: ORD-2025-000123
+            $table->foreignId('acheteur_id')
+                  ->constrained('users')->cascadeOnDelete();
+
+            // Statut & devise
+            $table->enum('status', ['pending','paid','failed','refunded'])->default('pending');
+            $table->string('devise', 3)->default('USD');
+
+            // Montants figés (centimes) — résumé pour reporting
+            $table->unsignedBigInteger('total_ht')->default(0);
+            $table->unsignedBigInteger('taxes')->default(0);
+            $table->unsignedBigInteger('commission_totale')->default(0);
+            $table->unsignedBigInteger('total_ttc')->default(0);
+
+            // Paiement (snapshot provider)
+            $table->string('provider')->nullable();           // Stripe, PayPal, Flutterwave...
+            $table->string('provider_intent_id')->nullable(); // payment intent / ref
+            $table->timestamp('paid_at')->nullable();
+
+            // Facturation légère (optionnel)
+            $table->string('billing_name')->nullable();
+            $table->string('billing_email')->nullable();
+
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->index(['acheteur_id', 'status']);
+            $table->index('paid_at');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('commandes');

@@ -11,6 +11,33 @@ class CategorieController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function home()
+    {
+      return view("pages.home");
+    }
+    public function about()
+    {
+      return view("pages.about");
+    }
+    public function expPhoto()
+    {
+      return view("pages.Ephoto");
+    }
+    public function expSon()
+    {
+      return view("pages.Eson");
+    }
+    public function expVideo()
+    {
+      return view("pages.Evideo");
+    }
+    public function contact()
+    {
+      return view("pages.contact");
+    }
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
         //

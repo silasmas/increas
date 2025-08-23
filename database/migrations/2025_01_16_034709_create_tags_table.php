@@ -21,6 +21,7 @@ return new class extends Migration
                     $table->foreignIdFor(\App\Models\Tag::class)->constrained()->onDelete('cascade');
                     $table->foreignIdFor(\App\Models\Produit::class)->constrained()->onDelete('cascade');
                     $table->primary(['tag_id','produit_id']);
+                    $table->timestamps();
                 });
     }
 

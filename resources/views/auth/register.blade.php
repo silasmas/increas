@@ -1,52 +1,113 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+@extends("layouts.layout")
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+@section("content")
+<section class="signin__section pt-60 pb-120">
+   <div class="container">
+      <div class="signin__wrapper">
+         <div class="row g-4 flex-row-reverse">
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            {{-- ===================== FORMULAIRE ===================== --}}
+            <div class="col-xxl-4 col-xl-5 col-lg-5">
+               <div class="signin__content">
+                  <h2 class="mb-60">Créer un compte</h2>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+                  <form method="POST" action="{{ route('register') }}">
+                     @csrf
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+                     {{-- Nom d’utilisateur --}}
+                     <input
+                        type="text"
+                        class="form__input mb-20 tcapi @error('name') is-invalid @enderror"
+                        id="name"
+                        name="name"
+                        value="{{ old('name') }}"
+                        required
+                        autofocus
+                        autocomplete="name"
+                        placeholder="Nom d’utilisateur">
+                     @error('name')
+                        <small class="text-danger d-block mt-1">{{ $message }}</small>
+                     @enderror
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+                     {{-- Adresse e-mail --}}
+                     <input
+                        type="email"
+                        class="form__input mb-20 tcapi @error('email') is-invalid @enderror"
+                        id="email"
+                        name="email"
+                        value="{{ old('email') }}"
+                        required
+                        autocomplete="username"
+                        placeholder="Adresse e-mail">
+                     @error('email')
+                        <small class="text-danger d-block mt-1">{{ $message }}</small>
+                     @enderror
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+                     {{-- Mot de passe --}}
+                     <input
+                        type="password"
+                        class="form__input mb-20 tcapi @error('password') is-invalid @enderror"
+                        id="password"
+                        name="password"
+                        required
+                        autocomplete="new-password"
+                        placeholder="Mot de passe">
+                     @error('password')
+                        <small class="text-danger d-block mt-1">{{ $message }}</small>
+                     @enderror
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
+                     {{-- Confirmation du mot de passe --}}
+                     <input
+                        type="password"
+                        class="form__input tcapi @error('password_confirmation') is-invalid @enderror"
+                        id="password_confirmation"
+                        name="password_confirmation"
+                        required
+                        autocomplete="new-password"
+                        placeholder="Confirmer le mot de passe">
+                     @error('password_confirmation')
+                        <small class="text-danger d-block mt-1">{{ $message }}</small>
+                     @enderror
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
+                     <div class="form-check d-flex align-items-center gap-2 mt-30 mb-40">
+                        <input class="form-check-input" type="checkbox" id="terms" name="terms" {{ old('terms') ? 'checked' : '' }}>
+                        <label class="form-check-label" for="terms">
+                           J’accepte les conditions générales d’utilisation
+                        </label>
+                     </div>
+                     @error('terms')
+                        <small class="text-danger d-block mt-1">{{ $message }}</small>
+                     @enderror
 
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+                     <button type="submit" class="cmn--btn login border-0">
+                        <span>Créer mon compte</span>
+                     </button>
+                  </form>
+               </div>
+            </div>
+
+            {{-- ===================== VISUEL / ACTIONS SECONDAIRES ===================== --}}
+            <div class="col-xxl-8 col-xl-7 col-lg-7">
+               <div class="signin__thumb creation__thumb">
+                  <div class="signcreat d-flex justify-content-end align-items-center gap-2">
+                     {{-- @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="cmn--btn">
+                           <span>Créer un compte</span>
+                        </a>
+                     @endif
+                     <a href="{{ route('login') }}" class="white__btn">
+                        <span>Se connecter</span>
+                     </a> --}}
+                  </div>
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </div>
+</section>
+
+
+
+@endsection

@@ -4,37 +4,48 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
-    /**
-     * Run the migrations.
-     */
+return new class extends Migration {
     public function up(): void
     {
         Schema::create('produits', function (Blueprint $table) {
             $table->id();
-            $table->string('title'); // Titre du produit
-            $table->text('description')->nullable(); // Description du produit
-            $table->decimal('price', 10, 2); // Prix
-            $table->string('curency');
-            $table->string('slug');
-            $table->text('moreDescription')->nullable();
-			$table->longtext('additionalInfos')->nullable();
-            $table->json('image_urls'); // Chemin du fichier image
-            $table->string('thumbnail_path')->nullable(); // Chemin de la miniature
-            $table->foreignId('category_id')->nullable()->constrained()->onDelete('set null'); // Catégorie
-            $table->boolean('isAvalable');
-			$table->boolean('isBestseler');
-			$table->boolean('isNewArivale');
-			$table->boolean('isFeatured');
-			$table->boolean('isSpecialOffer');
+
+            // Propriétaire (vendeur) & catégorie principale
+            $table->foreignId('seller_id')->nullable()
+                  ->constrained('vendeurs')->nullOnDelete();
+            $table->foreignId('category_id')->nullable()
+                  ->constrained('categories')->nullOnDelete();
+
+            // Métadonnées produit
+            $table->string('titre');                 // ex: “Pack d’icônes minimal”
+            $table->string('slug')->unique();        // URL lisible
+            $table->longText('description')->nullable();
+
+            // Type de média (filtrage rapide)
+            $table->enum('media_kind', ['image','video','audio','document','autre'])
+                  ->default('image');
+
+            // Fichier d’aperçu (miniature/preview) — pas de FK pour éviter un cycle
+            $table->unsignedBigInteger('apercu_fichier_id')->nullable();
+            $table->index('apercu_fichier_id');
+
+            // Workflow
+            $table->enum('status', ['draft','pending','approved','rejected','disabled'])
+                  ->default('draft');
+
+            // Agrégats d’avis (remplis via vue ou job)
+            $table->decimal('rating_avg', 3, 2)->default(0);
+            $table->unsignedInteger('rating_count')->default(0);
+
+            // Divers
+            $table->json('meta')->nullable();        // zone libre (ex: specs)
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->index(['seller_id', 'category_id', 'status']);
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('produits');

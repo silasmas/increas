@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\PanierController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,13 +20,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('sendMessage', [PanierController::class,'sendMessage'])->name('sendMessage');
-Route::post('addNewsletter', [PanierController::class,'addNewsletter'])->name('addNewsletter');
+Route::post('sendMessage', [PanierController::class, 'sendMessage'])->name('sendMessage');
+Route::post('addNewsletter', [PanierController::class, 'addNewsletter'])->name('addNewsletter');
 
-
+Route::get('home', [CategorieController::class, 'home'])->name('home');
+Route::get('about', [CategorieController::class, 'about'])->name('about');
+Route::get('expPhoto', [CategorieController::class, 'expPhoto'])->name('expPhoto');
+Route::get('expSon', [CategorieController::class, 'expSon'])->name('expSon');
+Route::get('expVideo', [CategorieController::class, 'expVideo'])->name('expVideo');
+Route::get('contact', [CategorieController::class, 'contact'])->name('contact');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect()->route('home');
+    // return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -34,4 +41,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
